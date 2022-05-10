@@ -7,7 +7,7 @@ def imageTag = "${ocir}/${tenancy}/oracleimc/${appName}:${env.BRANCH_NAME}.${env
 pipeline { 
 	  agent {
     kubernetes {
-      label 'people-service-app-build'
+      inheritFrom 'people-service-app-build'
       defaultContainer 'jnlp'
       yaml """
 apiVersion: v1
